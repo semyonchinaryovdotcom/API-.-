@@ -65,3 +65,14 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_PAGEUP:
+                zoom -= 2
+                image = pygame.image.load(get_image(get_coords(city), zoom, points))
+                screen.blit(image, image.get_rect())
+                pygame.display.flip()
+            elif event.key == pygame.K_PAGEDOWN:
+                zoom += 2
+                image = pygame.image.load(get_image(get_coords(city), zoom, points))
+                screen.blit(image, image.get_rect())
+                pygame.display.flip()
